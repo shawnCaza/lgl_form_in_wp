@@ -7,7 +7,7 @@ Embeds a [Little Green Light](https://www.littlegreenlight.com/) Form in a WordP
 1. Install the plugin
 2. Add shortcode to a page or post
 
-### Iframe shortcode
+## Iframe shortcode
 
 Add the shortcode `[lgl_iframe_id=xxxxx]` to a page or post where you want the form to appear. Replace `xxxxx` with the form ID from Little Green Light.
 
@@ -26,12 +26,18 @@ Available parameters are:
 - `frameborder` - The border of the iframe. Default is 0.
 - `style` - The style of the iframe. Default is `width:100%;border:none;`.
 
-### Javascript shortcode
+## Javascript shortcode
 
 Add the shortcode `[lgl_js_id=xxxxx]` to a page or post where you want the form to appear. Replace `xxxxx` with the form ID from Little Green Light. Note: Query strings are not passed to the form with this shortcode.
 
-### Using query string fields within your WP page
+## Query string shortcode
 
 In addition to passing query strings to the iframe, for use in the LGL form, you can also use query strings in the WP content itself.
 
 The shortcode for using query strings in the WP content is `[lgl_field=xxxxx]`. Replace `xxxxx` with the query string field name. When the page is rendered, this shortcode will be replaced with the value of the query string field.
+
+Example url: `https://example.com/page/?field_50=John`
+
+Example shortcode: `[lgl_field=field_50]`
+
+Rendered output: `John`
