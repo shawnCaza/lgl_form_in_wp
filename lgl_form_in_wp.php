@@ -17,7 +17,6 @@ function lgl_form_in_wp($content)
     $params = get_query_params($query);
 
     if (valid_query_string($params, $content)) {
-
         //remove lgl required fields from the content
         $content = preg_replace('/\[lgl_required=([\w\s,]+)\]/', '', $content);
 
@@ -31,7 +30,7 @@ function lgl_form_in_wp($content)
         $content = replace_lgl_field($content, $params);
     } else {
         // If the query string is invalid, return an error message
-        $content = "<p class='lgl-form-in-wp-error>Oops! Please verify that you have the correct URL.</p>";
+        $content = "<p class='lgl-form-in-wp-error'>Oops! Please verify that you have the correct URL.</p>";
     }
 
     return $content;
@@ -59,6 +58,10 @@ function valid_query_string($params, $content)
 
     //extract the required fields from the shortcode
     $required_fields = explode(',', $required_fields[1]);
+
+    if (empty($params)) {
+        return false;
+    }
 
     //check if all required fields are present in the query string
     foreach ($required_fields as $field) {
